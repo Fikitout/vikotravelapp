@@ -1,0 +1,84 @@
+<ion-view view-title="Payment Options" ng-controller="BusPaymentOptionsCtrl as payment">
+  <ion-content class="padding" id="page_content">
+
+    <div id="app_logo">
+
+    </div>
+    
+    <div class="sub_content">
+    	<div class="item item-divider card_top item-balanced">
+		    <h2>Booking Details</h2>
+		</div>
+
+		<div class="row">
+			<div class="col">
+				<b>Booking No.</b>: {{busBookingDetails.bookingnumber}}
+				<br>
+				<b>Name</b>: {{busBookingForm.guest.title}} {{busBookingForm.guest.fname}} {{busBookingForm.guest.sname}}
+				<br>
+				<b>Tel</b>: {{busBookingForm.guest.phone}}
+				<br>
+				<b>Email</b>: {{busBookingForm.guest.email}}
+				<br>
+				<b>Operator</b>: {{busBookingForm.busoperatorFK}} 
+				<br>
+				<b>Bus Type</b>: {{busBookingDetails.busFK}}
+				<br>
+				<b>Terminal</b>: {{busBookingDetails.terminalFK}}
+				<br>
+				<b>Seats</b>: {{busBookingDetails.num_seats}}
+				<br>
+				<b>Travel Date</b>: {{busBookingForm.boarding_datetime}}
+				<br>
+				<b>Invoice No.</b>: {{busBookingDetails.invoiceno}}
+				<br>
+				<b>Amount to be Paid</b>: {{busBookingDetails.amountpaid}}
+
+				<p>
+					Details have been sent to your email, its also adviced to copy down your Booking Number. Thanks.
+				</p>
+			</div>
+			
+		</div>
+    </div><!-- /.sub_content -->
+
+	<div class="sub_content">
+		<div class="item item-divider card_top item-balanced">
+		    <h2>Select Payment Option</h2>
+		</div>
+		
+		<div class="list">
+
+		  <!-- <a class="item item-icon-left" ng-click="goToWebPage('')">
+		    <i class="icon ion-card"></i>
+		    E-Payment (ATM Card)
+		  </a> -->
+
+		  <a class="item item-icon-left" ng-click="payment.payMethod('Bank Transfer')">
+		    <i class="icon ion-cash"></i>
+		    Book On-Hold (Pay at the Bank)
+		    
+		  </a>
+
+		  <a class="item item-icon-left" ng-click="payment.payMethod('Pay-On-Arrival')">
+		    <i class="icon ion-person"></i>
+		    Pay On Arrival
+		    <br>
+		  </a>
+
+		  <a class="item item-assertive item-icon-left" ui-sref="app.home">
+		    <i class="icon ion-android-exit"></i>
+		    Exit Booking
+		    <br>
+		  </a>
+
+		</div>
+
+	</div><!-- /.sub_content -->
+
+
+
+  </ion-content>
+</ion-view>
+
+		

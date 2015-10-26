@@ -1,0 +1,62 @@
+<ion-view view-title="Flight Booking History" ng-controller="FlightHistoryCtrl">
+    <ion-content class="padding">
+        <div ng-include="'./templates/includes/head_icons.html'"></div>
+
+        <div id="ft_home_logo">
+
+        </div>
+        <!--end ft_home_logo-->
+
+        <div id="ft_home_icons">
+            
+           <p align="center" ng-hide="loaded">
+                <!--<i class="icon ion-loading-c"></i>-->
+                <ion-spinner></ion-spinner>
+                <br/>
+                <i>Loading Flight Booking Archive</i>
+            </p>
+
+            <div id="flightArchive">
+                <div class="card" ng-repeat="archive in flightsarchive">
+                  <div class="item item-divider">
+                    <h2>Booking ID: {{archive.booking_id | uppercase}}</h2>
+                    <p>Date Booked : {{archive.datecreated}}</p>
+                    
+                  </div>
+                  <div class="item item-text-wrap">
+                    <p>
+                        <b>Type</b> : {{archive.booking_type}}
+                        <br>
+                        <b>Airline</b> : {{archive.airline}}
+                        <br>
+                        <b>Depart Date</b> : {{archive.outbound_date}}
+                        <br>
+                        <b>From</b> : {{archive.flight_origin}}
+                        <br>
+                        <b>To</b> : {{archive.flight_destination}}
+                        <br>
+                        <b>Class</b> : {{archive.ticket_type}}
+                        <br>
+                        <b>Adults</b> : {{archive.adults_num}}
+                        <br>
+                        <b>Children</b> : {{archive.child_num}}
+                        <br>
+                        <b>Infants</b> : {{archive.infant_num}}
+                        <br>
+                        <b>Total Price</b> : {{archive.total_price}}
+                        <br>
+                        <b>Status</b> : {{archive.status}}
+
+                    </p>
+                  </div>
+                  <!-- <div class="item item-divider">
+                    I'm a Footer in a Card!
+                  </div> -->
+                </div>
+            </div>
+
+        </div><!--end ft_home_icons-->
+
+        <div ng-include="'./templates/includes/page_actions.html'"></div>
+    </ion-content>
+</ion-view>

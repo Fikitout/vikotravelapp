@@ -1,0 +1,106 @@
+<ion-view view-title="Top Choice Hotels" ng-controller="SelectDiscountedHotelCtrl as selecthotel">
+  <ion-content class="padding" id="page_content">
+
+    <div id="app_logo">
+
+    </div>
+
+    <div class="sub_content">
+    	<div class="row">
+    		<div class="col">
+    			<label class="item item-input item-select">
+                    <div class="input-label">
+                        Your Destination
+                    </div>
+                    <select ng-model="stateFilter">
+	    				<option value="Abuja">Abuja - FCT</option>
+                        <option value="Abia">Abia</option>
+                        <option value="Adamawa">Adamawa</option>
+                        <option value="Akwa Ibom">Akwa Ibom</option>
+                        <option value="Anambra">Anambra</option>
+                        <option value="Bauchi">Bauchi</option>
+                        <option value="Bayelsa">Bayelsa</option>
+                        <option value="Benue">Benue</option>
+                        <option value="Borno">Borno</option>
+                        <option value="Cross River">Cross River</option>
+                        <option value="Delta">Delta</option>
+                        <option value="Ebonyi">Ebonyi</option>
+                        <option value="Edo">Edo</option>
+                        <option value="Ekiti">Ekiti</option>
+                        <option value="Enugu">Enugu</option>
+                        <option value="Gombe">Gombe</option>
+                        <option value="Imo">Imo</option>
+                        <option value="Jigawa">Jigawa</option>
+                        <option value="Kaduna">Kaduna</option>
+                        <option value="Kano">Kano</option>
+                        <option value="Katsina">Katsina</option>
+                        <option value="Kebbi">Kebbi</option>
+                        <option value="Kogi">Kogi</option>
+                        <option value="Kwara">Kwara</option>
+                        <option value="Lagos">Lagos</option>
+                        <option value="Nassarawa">Nassarawa</option>
+                        <option value="Niger">Niger</option>
+                        <option value="Ogun">Ogun</option>
+                        <option value="Ondo">Ondo</option>
+                        <option value="Osun">Osun</option>
+                        <option value="Oyo">Oyo</option>
+                        <option value="Plateau">Plateau</option>
+                        <option value="Rivers">Rivers</option>
+                        <option value="Sokoto">Sokoto</option>
+                        <option value="Taraba">Taraba</option>
+                        <option value="Yobe">Yobe</option>
+                        <option value="Zamfara">Zamfara</option>
+	    			</select>
+                </label>
+    			
+    		</div>
+    	</div>
+    </div>
+    
+    <div class="sub_content">
+	    <div class="row" ng-repeat="hotel in discountedValues | filter:stateFilter" ng-show="stateFilter">
+	    	<div class="col">
+	    		<p>
+	    			<b class="balanced">{{hotel.hotelname}} (Up to 50% off)</b>
+	    		</p>
+	    		<p>
+	    			<b>Address</b> : {{hotel.hoteladdress}}
+	    		</p>
+	    		<p>
+	    			<b>City</b> : {{hotel.city}}
+	    		</p>
+
+
+	    		<div class="list card">
+
+				  <div class="item item-divider">
+				    <h2>Hotel View</h2>
+				  </div>
+
+				  <div class="item item-image">
+				    <img src="http://www.vikotravel.com.ng/images/hotelimages/{{hotel.image}}">
+				  </div>
+
+				</div><!-- /.card -->
+
+	    		<p ng-bind-html="hotel.hoteldescription | sanitize | limitTo : 100">
+	    			
+	    		</p>
+
+	    		<p>
+					<button class="button button-block button-positive" ng-click="selecthotel.findHotelRooms(hotel.id)">
+			            <i class="icon ion-compose"></i>
+							&nbsp;
+							Book Now
+			        </button>
+				</p>
+	    	</div>
+
+	    	<hr>
+
+	    </div>
+	</div>
+
+	
+  </ion-content>
+</ion-view>

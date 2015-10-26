@@ -1,0 +1,78 @@
+<ion-view view-title="Select Bus" ng-controller="BusResultsCtrl as results">
+  <ion-content class="padding" id="page_content">
+
+    <div id="app_logo">
+
+    </div>
+    
+    <div class="card" ng-repeat="bus in busResults">
+	  <div class="item item-divider item-balanced card_top">
+		{{bus.bustype}}
+	  </div>
+	  <div class="item item-body">
+	    <img class="full-image" src="http://vikotravel.com.ng/interstatebus/images/busimages/{{bus.image}}">
+	    <p>	
+			<span class="positive">Total Seats available onboard</span>: <b>{{bus.totalseats}}</b>
+			<br>
+			<span class="positive">Bus Route No.</span>: <b>{{bus.platenumber}}</b>
+			<br>
+			<span class="positive">Operator</span>: <b>{{bus.busoperator}}</b>
+			<br>
+			<span class="positive">Bus Route</span>: <b>{{bus.depart | uppercase}} - {{bus.arrive | uppercase}}</b>
+	    </p>
+	    <div class="row">
+	    	<div class="col">
+	    		<b>Depart</b>
+	    		<br>
+	    		{{bus.departuretime}}
+	    	</div>
+	    	<div class="col">
+	    		<b>Arrive</b>
+	    		<br>
+	    		{{bus.arrivaltime}}
+	    	</div>
+	    </div>
+	    <p>
+	    	<span class="positive">Duration</span>: {{bus.duration}}
+	    	<br>
+	    	<span class="positive">Board Point</span>: 	{{bus.busterminal}}
+	    	<br>
+			<span class="positive">Drop Point</span>: 	{{bus.droppingpoint}}
+	    </p>
+	    <p>
+	    	<a class="button button-block button-outline button-dark">
+	    		Price : 
+	    		<span ng-show="bus.discount!=0">
+	    			&#8358;<del>{{bus.busfare}}</del>
+	    		</span> 
+	    		&#8358;{{bus.busfare - (bus.discount * bus.busfare/100)}}/Seat
+	    	</a>
+	    </p>
+	    <!-- <p>
+	    	<a class="button button-block button-outline button-dark">
+	    		Price : &#8358;{{bus.busfare}}/Seat
+	    	</a>
+	    </p> -->
+	    
+	    <div class="button-bar">
+		  <a class="button button-small button-balanced">{{bus.totalseats}} Seaters Bus</a>
+		  <a class="button button-small button-energized">{{bus.discount}}% Discount</a> <!-- Invokes a function that takes in the details as parameter and displays it in a alert box -->
+		</div>
+		<p>
+			<button class="button button-block button-positive" ng-click="results.bookBus(bus.id)">
+	            <i class="icon ion-compose"></i>
+					&nbsp;
+					Book Now
+	        </button>
+		</p>
+	  </div>
+
+	  
+	  <!-- <div class="item item-divider">
+	    Terms and Conditions Apply
+	  </div> -->
+	</div><!-- /. card1 -->
+
+	
+  </ion-content>
+</ion-view>

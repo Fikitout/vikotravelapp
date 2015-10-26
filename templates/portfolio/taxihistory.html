@@ -1,0 +1,69 @@
+<ion-view view-title="Taxi Booking History" ng-controller="TaxiHistoryCtrl">
+    <ion-content class="padding">
+        <div ng-include="'./templates/includes/head_icons.html'"></div>
+
+        <div id="ft_home_logo">
+
+        </div>
+        <!--end ft_home_logo-->
+
+        <div id="ft_home_icons">
+            
+           <p align="center" ng-hide="loaded">
+                <!--<i class="icon ion-loading-c"></i>-->
+                <ion-spinner></ion-spinner>
+                <br/>
+                <i>Loading Taxi Booking Archive</i>
+            </p>
+
+            <div id="flightArchive">
+                <div class="card" ng-repeat="archive in taxiarchive">
+                  <div class="item item-divider">
+                    <h2>Booking ID: {{archive.booking_id | uppercase}}</h2>
+                    <p>Date Booked : {{archive.datecreated}}</p>
+                    
+                  </div>
+                  <div class="item item-text-wrap">
+                    <p>
+                        <b>Commute</b> : {{archive.commute | uppercase}} AIRPORT
+                        <br>
+                        <b>Car Type</b> : {{archive.car_type}}
+                        <br>
+                        <p ng-show="archive.commute=='to'">
+                            <b>Pick-Up Date :</b> {{archive.pickup_date}}
+                            <br>
+                            <b>Pick-Up Address :</b> {{archive.pickup_address}}
+                            <br>
+                            <b>Pick-Up Time :</b> {{archive.pickup_time}}
+                        </p>
+                        <p ng-show="archive.commute=='from'">
+                            <b>Airline :</b> {{archive.airline_fra}}
+                            <br>
+                            <b>Landing Airport :</b> {{archive.dest_airport}}
+                            <br>
+                            <b>Arrival Time :</b> {{archive.arrival_time_fra}}
+                            <br>
+                            <b>Destination Address :</b> {{archive.dest_address}}
+                            <br>
+
+                        </p>
+
+                        <p>
+                            <b>Status :</b> {{archive.status}}
+                        </p>
+                        
+                        
+
+                    </p>
+                  </div>
+                  <!-- <div class="item item-divider">
+                    I'm a Footer in a Card!
+                  </div> -->
+                </div>
+            </div>
+
+        </div><!--end ft_home_icons-->
+
+        <div ng-include="'./templates/includes/page_actions.html'"></div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <!-- <link href="lib/ionic/css/ionic.css" rel="stylesheet"> -->
+    <link href="lib/ionic/css/app.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
+    <script type="text/javascript">
+      function hideLoading() {
+        document.getElementById('divLoading').style.display = "none";
+        //document.getElementById('divFrameHolder').style.display = "block";
+      }
+    </script>
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/underscore-min.js"></script>
+    
+
+    <link href="lib/ionic-datepicker/dist/style.css" rel="stylesheet">
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic-service-core/ionic-core.js"></script>
+    <script src="lib/ionic-datepicker/dist/templates.js"></script>
+    <script src="lib/ionic-datepicker/dist/ionic-datepicker.js"></script>
+
+    <!--Libraries-->
+    <!--<script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui/jquery-ui.min.js"></script>
+    <script src="js/jquery-ui/jquery-ui.min.css"></script>-->
+    <script src="lib/angular-repeat-n/dist/angular-repeat-n.min.js"></script>
+    <script src="js/angular-messages.js"></script>
+    <!-- <script src="lib/moment/moment.js"></script>
+    <script src="js/local-cache.js"></script> -->
+    <script src="js/script.js"></script>
+
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/app.services.js"></script>
+    <script src="js/app.directives.js"></script>
+    <script src="js/controllers.js"></script>
+
+  </head>
+
+  <body ng-app="flightsTime">
+
+
+    <ion-nav-view></ion-nav-view>
+
+    <div id="ft_footer" class="bar bar-footer bar-energized">
+      <div class="title">Powered by Viko Nigeria</div>
+    </div>
+  </body>
+</html>

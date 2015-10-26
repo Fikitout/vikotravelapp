@@ -1,0 +1,63 @@
+<ion-view view-title="My Portfolio" ng-controller="PortfolioCtrl">
+  <ion-content class="padding" id="page_content">
+
+    <div id="app_logo">
+
+    </div>
+    
+    <div id="ft_home_icons">
+
+        <div class="row">
+                <div class="col button button-assertive" ng-click="goToPage('app.notifications')">
+                    My
+                    <br/>
+                    <i class="icon ion-chatboxes"></i>
+                    <br/>
+                    Notifications
+                </div>
+                <div class="col button button-assertive" ng-click="goToPage('app.hotelhistory')">
+                <!-- <div class="col button button-assertive" ng-click="goToPage('app.hotelhistory')"> -->
+                    Hotel
+                    <br/>
+                    <i class="fa fa-hotel"></i>
+                    <br/>
+                    History
+                </div>
+                <div class="col button button-assertive" ng-click="goToPage('app.bushistory')">
+                    Bus
+                    <br/>
+                    <i class="fa fa-bus"></i>
+                    <br/>
+                    History
+                </div>
+        </div>
+
+        <div class="row">
+            <div class="col button button-royal" ng-click="getDiscountedValues('Hotels')">
+                Top Choice 
+                <br/>
+                <i class="fa fa-bed"></i>
+                <br/>
+                Hotels
+            </div>
+            <div class="col button button-royal" ng-click="goToPage('app.yesterdaytimes')">
+                Yesterday
+                <br/>
+                <i class="fa fa-undo"></i>
+                <br/>
+                Schedules
+            </div>
+            <div class="col button button-royal" ng-click="getDiscountedValues('Buses')">
+                Top Choice
+                <br/>
+                <i class="fa fa-bus"></i>
+                <br/>
+                Buses
+            </div>
+            
+        </div>
+    </div>
+
+
+  </ion-content>
+</ion-view>

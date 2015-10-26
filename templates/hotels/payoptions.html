@@ -1,0 +1,90 @@
+<ion-view view-title="Payment Options" ng-controller="PaymentOptionsCtrl as payment">
+  <ion-content class="padding" id="page_content">
+
+    <div id="app_logo">
+
+    </div>
+    
+    <div class="sub_content">
+    	<div class="item item-divider card_top item-balanced">
+		    <h2>Booking Details</h2>
+		</div>
+
+		<div class="row">
+			<div class="col">
+				<b>Booking No.</b>: {{bookingSuccessDetails.bookingnumber}}
+				<br>
+				<b>Name</b>: {{hotelguest.title}} {{hotelguest.fname}} {{hotelguest.sname}}
+				<br>
+				<b>Tel</b>: {{hotelguest.phone}}
+				<br>
+				<b>Email</b>: {{hotelguest.email}}
+				<br>
+				<b>Hotel</b>: {{hotelDetails.hotelname}} {{hotelDetails.hoteladdress}} {{hotelDetails.city}}
+				<br>
+				<b>Room</b>: {{selectedRoom.roomname_type}}
+				<br>
+				<b>Per Night</b>: {{bookingSuccessDetails.pernightprice}}
+				<br>
+				<b>Nights</b>: {{bookingSuccessDetails.totaldays}}
+				<br>
+				<b>Adults</b>: {{bookingSuccessDetails.num_adults}}
+				<br>
+				<b>Children</b>: {{bookingSuccessDetails.num_children}}
+				<br>
+				<b>Check-In</b>: {{bookingSuccessDetails.guestcheckindate}}
+				<br>
+				<b>Check-Out</b>: {{bookingSuccessDetails.guestcheckoutdate}}
+				<br>
+				<b>Invoice No.</b>: {{bookingSuccessDetails.invoiceno}}
+				<br>
+				<b>Amount to be Paid</b>: {{bookingSuccessDetails.amountpaid}}
+
+				<p>
+					Details have been sent to your email, its also adviced to copy down your Booking Number. Thanks.
+				</p>
+			</div>
+			
+		</div>
+    </div><!-- /.sub_content -->
+
+	<div class="sub_content">
+		<div class="item item-divider card_top item-balanced">
+		    <h2>Select Payment Option</h2>
+		</div>
+		
+		<div class="list">
+
+		  <!-- <a class="item item-icon-left" ng-click="goToWebPage('')">
+		    <i class="icon ion-card"></i>
+		    E-Payment (ATM Card)
+		  </a> -->
+
+		  <a class="item item-icon-left" ng-click="payment.payMethod('Bank Transfer')">
+		    <i class="icon ion-cash"></i>
+		    Book On-Hold (Pay at the Bank)
+		    
+		  </a>
+
+		  <a class="item item-icon-left" ng-click="payment.payMethod('Pay-On-Arrival')">
+		    <i class="icon ion-person"></i>
+		    Pay On Arrival
+		    <br>
+		  </a>
+
+		  <a class="item item-assertive item-icon-left" ui-sref="app.home">
+		    <i class="icon ion-android-exit"></i>
+		    Exit Booking
+		    <br>
+		  </a>
+
+		</div>
+
+	</div><!-- /.sub_content -->
+
+
+
+  </ion-content>
+</ion-view>
+
+		

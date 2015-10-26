@@ -1,0 +1,15 @@
+ <div class="col">
+    <p>
+        {{$index +1}}.Passenger
+    </p>
+    <label class="item item-input item-select">
+        <div class="input-label">
+            Title
+        </div>
+        <select ng-model="ftpassengers.passengersForm.passengers['$position'].title">
+            <option value="Mr">Mr</option>
+            <option value="Mrs">Mrs</option>
+            <option value="Miss">Miss</option>   
+        </select>
+    </label>
+</div>

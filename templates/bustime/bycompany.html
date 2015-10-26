@@ -1,0 +1,118 @@
+<ion-view view-title="View by Bus Company" ng-controller="FindSchedulesCtrl as finder">
+    <ion-content class="padding" id="page_content">
+
+    <div id="app_logo">
+
+    </div>
+
+        <div class="sub_content">
+            <div class="item item-divider card_top item-balanced">
+                <h2>View by Bus Company</h2>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <p>
+                        <b>All Fields (except "Terminal") are Required!</b>
+                    </p>
+                    <form name="searchRoutesForm" ng-submit="finder.searchRoutes()">
+                        
+                        
+
+                        <div class="row">
+                            <div class="col">
+                                <label class="item item-input item-select">
+                                    <div class="input-label">
+                                        From
+                                    </div>
+                                    <select ng-model="finder.searchForm.from"
+                                            ng-options="state.florigin as state.florigin for state in bustimesStates" required>
+                                        <option value="Abuja" selected>Abuja</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <label class="item item-input item-select">
+                                    <div class="input-label">
+                                        To
+                                    </div>
+                                    <select ng-model="finder.searchForm.to"
+                                            ng-options="state.florigin as state.florigin for state in bustimesStates" required>
+                                        <option value="Abuja" selected>Abuja</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+
+                        <p align="center" ng-show="loadingOperators">
+                            <i>Loading Operators...</i>
+                        </p>
+
+                        <div class="row" ng-hide="loadingOperators">
+                            <div class="col">
+                                <label class="item item-input item-select">
+                                    <div class="input-label">
+                                        Company
+                                    </div>
+                                    <!-- <select ng-model="finder.searchForm.operator" ng-options="operator.airline_name as operator.airline_name for operator in bustimesOperators" required>
+                                    </select> -->
+                                    <select ng-model="finder.searchForm.operator">
+                                        <option ng-repeat="operator in routeOperators" value="{{operator}}">{{operator}}</option>
+                                    </select>
+
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <p>
+                                    Depart
+                                </p>
+                                <ionic-datepicker idate="departDate" disablepreviousdates="true"  disablefuturedates="false" callback="datePickerCallback" title="title">
+                                <button type="button" class="button button-block button-assertive"> {{ departDate | date:'dd - MMMM - yyyy' }} </button>
+                            </ionic-datepicker>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <label class="item item-input item-select">
+                                    <div class="input-label">
+                                        Terminal
+                                    </div>
+                                    <!-- <select ng-model="finder.searchForm.terminal" ng-options="terminal.airport_name as terminal.airport_name for terminal in bustimesTerminals">
+                                    </select> -->
+                                    <select ng-model="finder.searchForm.terminal">
+                                        <option ng-repeat="terminal in busTimesRouteTerminals" value="{{terminal}}">{{terminal}}</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- <div class="row">
+                            <div class="col">
+                                <label class="item item-input">
+                                    <input placeholder="Route Number (Optional)" ng-model="finder.searchForm.route_no" type="text">
+                                </label>
+                            </div>
+                        </div> -->
+                        <p>
+                            <button class="button button-block button-positive" ng-disabled="searchRoutesForm.$invalid">
+                                Search Bus Schedules
+                            </button>
+                        </p>
+                    </form>
+                </div>
+            </div>
+            
+
+
+        </div><!-- /.sub_content -->
+
+       
+    </ion-content>
+</ion-view>

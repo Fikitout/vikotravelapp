@@ -1,0 +1,144 @@
+/* Empty. Add your own CSS if you like */
+#app_logo{
+	height: 154px;
+    background-image: url(../img/logo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 20px;
+}
+
+#page_content{
+	background-image: url('../img/appbg.png');
+    background-position: center;
+    /*background-repeat: no-repeat;*/
+    margin-top: -10px;
+}
+
+#page_content .card_top h2{
+	color: white;
+}
+
+#page_content .card_top p{
+	font-size: 0.8em;
+	color: #fff;
+}
+
+#page_content .sub_content{
+	background-color: white;
+	/*padding: 5px;*/
+	margin-top: 20px;
+}
+
+#page_content .button .card .price_tag{
+	color: black;
+}
+
+#bt_main_side_menu{
+	background-color: #333;	
+}
+
+#bt_main_side_menu .item{
+	background-color: #333;
+    color: #ffffff;
+}
+
+#bt_sideMenu .item-divider{
+	background-color: #000;
+}
+
+/*#page_content .card input[type='text'], #page_content .card button{
+	border: 1px solid #ccc;
+	padding-left: 10px;
+	margin-left: -15px;
+}*/
+
+/*Styles From Template*/
+/* Empty. Add your own CSS if you like */
+#ft_home_logo {
+    height: 154px;
+    background-image: url(../img/logo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 20px;
+}
+
+#ft_home_icons, #ft_flight_icons {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#ft_forms{
+    margin-top: 20px;
+}
+
+#ft_home_icons .row, #ft_flight_icons .row {
+    margin-bottom: 10px;
+}
+
+#ft_home_icons .col, #ft_flight_icons .col {
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+#ft_home_icons .col .fa, #ft_flight_icons .col .fa {
+    font-size: 20px;
+}
+
+#ft_page_btns {
+    margin-top: 20px;
+}
+
+#ft_footer{
+    font-size: 10px;
+}
+
+#iframeLoading{
+    position: absolute;
+    top: 20px;
+    left: 50px;
+    z-index: -1;
+    font-style: italic;
+    font-size: 16px;
+}
+
+iframe {
+    background: none;
+}
+
+/************Validation Styles*************/
+/** Styling for the error field **/
+label.item.has-error {  
+  border-bottom: 2px solid red;
+}
+
+/** Another when an error exists**/
+label.item.has-error-lr {  
+  border-left: 2px solid red;
+  border-right: 2px solid red;
+}
+
+/** Styling for the field when an error has been resolved**/
+label.item.valid-lr {  
+  border-left: 2px solid green;
+  border-right: 2px solid green;
+}
+
+/*.flip{
+    -webkit-transform:rotate(-180deg);
+    -moz-transform:rotate(-180deg);
+    -o-transform:rotate(-180deg);
+    transform:rotate(-180deg);
+    ms-filter:"progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
+    filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+}*/
+
+.flip{
+    filter:  progid:DXImageTransform.Microsoft.BasicImage(rotation=2);  /* IE6,IE7 */
+    ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)"; /* IE8 */
+    -moz-transform: rotate(-180deg);  /* FF3.5+ */
+    -o-transform: rotate(-180deg);  /* Opera 10.5 */
+    -webkit-transform: rotate(-180deg);  /* Safari 3.1+, Chrome */
+    position: absolute;
+    margin-left: -10px;
+}
+

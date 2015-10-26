@@ -1,0 +1,128 @@
+<ion-view view-title="SME Expression of Interest" ng-controller="InterestFormCtrl as interest">
+  <ion-content class="padding" id="page_content">
+
+    <div id="app_logo">
+
+    </div>
+    
+
+	<div class="sub_content">
+		<div class="item item-divider card_top item-balanced">
+		    <h2>SME Expression of Interest</h2>
+		</div>
+
+		<div class="row">
+            <div class="col">
+            	<p>
+            		<b>* All fields are Required!</b>
+            	</p>
+            	<form name="expressionForm" ng-submit="interest.submitInterest()">
+            		<div class="row">
+                        <div class="col">
+                            <label class="item item-input">
+                                <input placeholder="First Name" ng-model="interest.interestForm.fname" type="text">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label class="item item-input">
+                                <input placeholder="Middle Name" ng-model="interest.interestForm.mname" type="text">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label class="item item-input">
+                                <input placeholder="Surname" ng-model="interest.interestForm.sname" type="text">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label class="item item-input">
+                                <input placeholder="Phone" ng-model="interest.interestForm.phone" type="text">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label class="item item-input">
+                                <input placeholder="Email" ng-model="interest.interestForm.email" type="email">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label class="item item-input">
+                                <input placeholder="Residential Address" ng-model="interest.interestForm.address" type="text">
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+	                    <div class="col">
+	                        <label class="item item-input item-select">
+	                            <div class="input-label">
+	                                State
+	                            </div>
+	                            <select id="state" name="state" ng-model="interest.interestForm.state" required>
+	                                <option value="Abuja Federal Capital" selected>Abuja Federal Capital</option selected>
+	                                <option value="Abia">Abia</option>
+	                                <option value="Adamawa">Adamawa</option>
+	                                <option value="Akwa Ibom">Akwa Ibom</option>
+	                                <option value="Anambra">Anambra</option>
+	                                <option value="Bauchi">Bauchi</option>
+	                                <option value="Bayelsa">Bayelsa</option>
+	                                <option value="Benue">Benue</option>
+	                                <option value="Borno">Borno</option>
+	                                <option value="Cross River">Cross River</option>
+	                                <option value="Delta">Delta</option>
+	                                <option value="Ebonyi">Ebonyi</option>
+	                                <option value="Edo">Edo</option>
+	                                <option value="Ekiti">Ekiti</option>
+	                                <option value="Enugu">Enugu</option>
+	                                <option value="Gombe">Gombe</option>
+	                                <option value="Imo">Imo</option>
+	                                <option value="Jigawa">Jigawa</option>
+	                                <option value="Kaduna">Kaduna</option>
+	                                <option value="Kano">Kano</option>
+	                                <option value="Katsina">Katsina</option>
+	                                <option value="Kebbi">Kebbi</option>
+	                                <option value="Kogi">Kogi</option>
+	                                <option value="Kwara">Kwara</option>
+	                                <option value="Lagos">Lagos</option>
+	                                <option value="Nassarawa">Nassarawa</option>
+	                                <option value="Niger">Niger</option>
+	                                <option value="Ogun">Ogun</option>
+	                                <option value="Ondo">Ondo</option>
+	                                <option value="Osun">Osun</option>
+	                                <option value="Oyo">Oyo</option>
+	                                <option value="Plateau">Plateau</option>
+	                                <option value="Rivers">Rivers</option>
+	                                <option value="Sokoto">Sokoto</option>
+	                                <option value="Taraba">Taraba</option>
+	                                <option value="Yobe">Yobe</option>
+	                                <option value="Zamfara">Zamfara</option>
+	                            </select>
+
+	                        </label>
+	                    </div>
+	                </div>
+
+                    <p>
+                        <button class="button button-block button-positive" ng-disabled="expressionForm.$invalid">
+                            Submit
+                        </button>
+                    </p>
+            	</form>
+            </div>
+        </div>
+
+		
+	</div><!-- /.sub_content -->
+
+
+
+  </ion-content>
+</ion-view>

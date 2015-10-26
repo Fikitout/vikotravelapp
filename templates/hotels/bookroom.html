@@ -1,0 +1,286 @@
+<ion-view view-title="{{selectedRoom.roomname_type}} - {{hotelDetails.hotelname}}" ng-controller="BookRoomCtrl as booking">
+  <ion-content class="padding" id="page_content">
+
+    <div id="app_logo">
+
+    </div>
+    
+    <div class="card">
+	  <div class="item item-divider item-balanced card_top">
+	    {{selectedRoom.roomname_type}}
+	  </div>
+	  <div class="item item-body">
+	    <img class="full-image" src="http://www.vikotravel.com.ng/images/roomimages/{{selectedRoom.image}}">
+	    <p>
+			<b class="balanced">
+				{{hotelDetails.hotelname}}, {{hotelDetails.hoteladdress}}, {{hotelDetails.city}}.
+			</b>
+	    </p>
+	    <p>
+          Total of this room type: {{selectedRoom.roomtotal}}
+          <br>
+          Max Occupancy: {{selectedRoom.maxadult}} adult(s)   {{selectedRoom.maxchildren}} child(ren)
+        </p>
+        <p>
+            <a class="button button-block button-outline button-dark">
+                Price : 
+                <span ng-show="selectedRoom.discount!=0">
+                    &#8358;<del>{{selectedRoom.roompernightprice}}</del>
+                </span> 
+                &#8358;
+                {{selectedRoom.roompernightprice - (selectedRoom.discount * selectedRoom.roompernightprice/100)}}/night
+            </a>
+        </p>
+	    <!-- <p>
+	    	<a class="button button-block button-outline button-dark">
+	    		Price : &#8358;{{selectedRoom.roompernightprice}}/night
+	    	</a>
+	    </p> -->
+	    <div class="button-bar">
+		  <a class="button button-small button-balanced">{{selectedRoom.roomtotal}} rooms left</a>
+		  <a class="button button-small button-energized">{{selectedRoom.discount}}% Discount</a> <!-- Invokes a function that takes in the details as parameter and displays it in a alert box -->
+		</div>
+		
+	  </div>
+
+	</div><!-- /. card1 -->
+
+	<div class="sub_content">
+		<div class="item item-divider card_top item-balanced">
+		    <h2>Booking Form</h2>
+		</div>
+
+		
+		<form name="hotelBookingForm" ng-submit="booking.bookHotel()">
+            <div class="row">
+                <div class="col">
+                    <p>
+                        Check-In
+                    </p>
+                    <ionic-datepicker idate="checkIn" disablepreviousdates="true"  disablefuturedates="false" callback="datePickerCheckInCallback" title="title">
+                    <button type="button" class="button button-block button-assertive"> {{ checkIn | date:'dd - MMMM - yyyy' }} </button>
+                </ionic-datepicker>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <p>
+                        Check-Out
+                    </p>
+                    <ionic-datepicker idate="checkOut" disablepreviousdates="true"  disablefuturedates="false" callback="datePickerCheckOutCallback" title="title">
+                    <button type="button" class="button button-block button-calm"> {{ checkOut | date:'dd - MMMM - yyyy' }} </button>
+                </ionic-datepicker>
+                </div>
+            </div>
+
+            <div class="row" ng-cloak>
+                <div class="col">
+                    Nights : {{booking.numNights()}} &nbsp; <span ng-show="booking.numNights() < 0" class="assertive"><i>Invalid Range</i></span>
+                </div>
+                
+            </div>
+
+			<div class="row">
+                <div class="col">
+                    <p>
+                        <b>Adults</b>
+                        <br>
+                        {{booking.bookingForm.num_adults}}
+                    </p>
+                    <label class="item item-input item-select">
+                        <div class="input-label">
+                            {{booking.bookingForm.num_adults}}
+                        </div>
+                        <select ng-model="booking.bookingForm.num_adults" required>
+                            <option value="1" selected>1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </label>
+
+                </div>
+                <div class="col">
+                    <p>
+                        <b>Children</b>
+                        <br>
+                        {{booking.bookingForm.num_children}}
+                    </p>
+                    <label class="item item-input item-select">
+                        <div class="input-label">
+                            {{booking.bookingForm.num_children}}
+                        </div>
+                        <select ng-model="booking.bookingForm.num_children" required>
+                            <option value="0" selected>0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="col">
+                    <p>
+                        <b>How Many?</b>
+                        <br>
+                        {{booking.bookingForm.num_rooms}}
+                    </p>
+                    <label class="item item-input item-select">
+                        <div class="input-label">
+                            {{booking.bookingForm.num_rooms}}
+                        </div>
+                        <select ng-model="booking.bookingForm.num_rooms" required>
+                            <option value="0" selected>0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <p>
+                        Service Fee: &#8358;{{appSettings.service_charge}}
+                        <br>
+                        Tax & VAT : {{appSettings.vat}}%
+                    </p>
+                    <a class="button button-block button-outline button-dark">
+                        Total Price : &#8358;{{booking.calculatePrice()}}
+                    </a>
+                </div>  
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="col">
+                   <label class="item item-input item-select">
+                        <div class="input-label">
+                            Title
+                        </div>
+                        <select ng-model="booking.bookingForm.guest.title" required>
+                            <option value="Mr.">Mr.</option>
+                            <option value="Miss">Miss</option>
+                            <option value="Mrs.">Mrs.</option>
+                            <option value="Master">Master</option>
+                            <option value="Barr.">Barr.</option>
+                            <option value="Chief">Chief</option>
+                            <option value="Dr.">Dr.</option>
+                            <option value="HRH">HRH</option>
+                            <option value="Hon.">Hon.</option>
+                            <option value="Lady">Lady</option>
+                            <option value="Mstr.">Mstr.</option>
+                            <option value="Ms.">Ms.</option>
+                            <option value="Otunba">Otunba</option>
+                            <option value="Pastor">Pastor</option>
+                            <option value="Prof.">Prof.</option>
+                            <option value="Sen.">Sen.</option>
+                            <option value="Sir">Sir</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="item item-input" ng-class="{ 'has-error' : hotelBookingForm.firstname.$invalid && hotelBookingForm.$submitted}">
+                        <input placeholder="Name" name="firstname" ng-model="booking.bookingForm.guest.fname" type="text" required>
+                    </label>
+                    <div ng-messages="hotelBookingForm.firstname.$error" ng-if="hotelBookingForm.$submitted" role="alert">
+                        <div ng-message="required">This Field is Required</div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="item item-input" ng-class="{ 'has-error' : hotelBookingForm.surname.$invalid && hotelBookingForm.$submitted}">
+                        <input placeholder="Last Name" name="surname" ng-model="booking.bookingForm.guest.sname" type="text" required>
+                    </label>
+                    <div ng-messages="hotelBookingForm.surname.$error" ng-if="hotelBookingForm.$submitted" role="alert">
+                        <div ng-message="required">This Field is Required</div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="item item-input" ng-class="{ 'has-error' : hotelBookingForm.tel.$invalid && hotelBookingForm.$submitted}">
+                        <input type="text" name="tel" placeholder="Telephone (Mobile Preferred)" ng-model="booking.bookingForm.guest.phone" required>
+                    </label>
+                </div>
+                <div ng-messages="hotelBookingForm.tel.$error" ng-if="hotelBookingForm.$submitted" role="alert">
+                    <div ng-message="required">This Field is Required</div>
+                    
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col">
+                    <b>Where should we send your confirmation?</b>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col">
+                    <label class="item item-input" ng-class="{ 'has-error' : hotelBookingForm.guestemail.$invalid && hotelBookingForm.$submitted}">
+                        <input placeholder="Email" name="guestemail" ng-model="booking.bookingForm.guest.email" type="email" required>
+                    </label>
+                    <div ng-messages="hotelBookingForm.guestemail.$error" ng-if="hotelBookingForm.$submitted" role="alert">
+                        <div ng-message="required">This Field is Required</div>
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="row">
+                <div class="col">
+                    <label class="item item-input" ng-class="{ 'has-error' : hotelBookingForm.guestconemail.$invalid && hotelBookingForm.$submitted}">
+                        <input placeholder="Confirm Email" name="guestconemail" ng-model="booking.bookingForm.guest.confirmemail" type="email">
+                    </label>
+                    <div ng-messages="hotelBookingForm.guestconemail.$error" ng-if="hotelBookingForm.$submitted" role="alert">
+                        <div ng-message="required">This Field is Required</div>
+                        
+                    </div>
+                </div>
+            </div> -->
+
+
+            <div class="row">
+	            <div class="col">
+	            	<!-- Change this back to a button later -->
+	                <button class="button button-block button-positive" ng-disabled="hotelBookingForm.$invalid">
+	                   	<i class="icon ion-clipboard"></i>
+					    &nbsp;
+					    Book Room
+	                </button>
+	            </div>
+	        </div>
+		</form>
+
+	</div><!-- /.sub_content -->
+
+
+
+  </ion-content>
+</ion-view>

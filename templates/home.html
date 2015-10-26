@@ -1,0 +1,74 @@
+<ion-view view-title="VikoTravel">
+    <ion-content class="padding" id="page_content">
+
+        <div ng-include="'./templates/includes/head_icons.html'"></div>
+
+        <div id="app_logo">
+
+        </div><!--end ft_home_logo-->
+
+        <div id="ft_home_icons">
+            <div class="row">
+                
+                <div class="col button button-balanced" ng-click="goToPage('app.scheduleviewoptions')" ng-disabled="!subscribed">
+                    Bus
+                    <br/>
+                    <i class="fa fa-bus"></i>
+                    <br/>
+                    Times
+                </div>
+                <div class="col button button-balanced" ng-click="goToPage('app.searchhotels')" ng-disabled="!subscribed">
+                    Book
+                    <br/>
+                    <i class="fa fa-hotel"></i>
+                    <br/>
+                    Hotels
+                </div>
+                <div class="col button button-balanced" ng-click="goToPage('app.searchbus')" ng-disabled="!subscribed">
+                    Book
+                    <br/>
+                    <i class="icon ion-android-bus"></i>
+                    <br/>
+                    Bus
+                </div>
+            </div>
+
+            <div class="row" ng-hide="subscribed">
+                <div class="col">
+                    <button class="button button-block button-positive" ng-click="goToPage('app.enterpin')">Activate Access</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col button button-royal" ng-click="goToWebPage('http://bustime.com.ng/mobile_updates.php')" ng-disabled="!subscribed">
+                    Alert
+                    <br/>
+                    <i class="icon ion-social-rss-outline"></i>
+                    <br/>
+                    Updates
+                </div>
+                <div class="col button button-assertive" ng-click="goToPage('app.portfolio')">
+                    My
+                    <br/>
+                    <i class="icon ion-ios-briefcase"></i>
+                    <br/>
+                    Portfolio
+                </div>
+                <div class="col button button-royal" ng-click="goToPage('app.premiumupdates')">
+                    Premium
+                    <br/>
+                    <i class="fa ion-card"></i>
+                    <br/>
+                    Updates
+                </div>
+                
+            </div>
+
+            
+
+
+        </div><!--end ft_home_icons-->
+
+        <div ng-include="'./templates/includes/page_actions.html'"></div>
+    </ion-content>
+</ion-view>

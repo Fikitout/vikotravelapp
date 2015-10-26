@@ -1,0 +1,72 @@
+<ion-view view-title="Hotel Booking History" ng-controller="HotelHistoryCtrl">
+  <ion-content class="padding" id="page_content">
+
+    <div id="app_logo">
+
+    </div>
+    
+
+	<div id="ft_home_icons">
+            
+	   <p align="center" ng-hide="loaded">
+	        <!--<i class="icon ion-loading-c"></i>-->
+	        <ion-spinner></ion-spinner>
+	        <br/>
+	        <i>Loading Hotel Booking Archive</i>
+	    </p>
+
+	    <p ng-show="nohistory">
+	    	No History Found
+	    </p>
+
+	    <div id="flightArchive">
+	        <div class="card" ng-repeat="archive in hotelarchive">
+	          <div class="item item-divider">
+	            <h2>Booking No.: {{archive.bookingnumber | uppercase}}</h2>
+	            <p>Date Booked : {{archive.bookingdatetime}}</p>
+	            
+	          </div>
+	          <div class="item item-text-wrap">
+	          	<p>
+					<b>Hotel</b>: {{archive.hotel.hotelname}} {{archive.hotel.hoteladdress}} {{archive.hotel.city}}
+					<br>
+					<b>Room</b>: {{archive.room.roomname_type}}
+					<br>
+					<b>Per Night</b>: {{archive.pernightprice}}
+					<br>
+					<b>Nights</b>: {{archive.totaldays}}
+					<br>
+					<b>Adults</b>: {{archive.num_adults}}
+					<br>
+					<b>Children</b>: {{archive.num_children}}
+					<br>
+					<b>Check-In</b>: {{archive.guestcheckindate}}
+					<br>
+					<b>Check-Out</b>: {{archive.guestcheckoutdate}}
+					<br>
+					<b>Invoice No.</b>: #{{archive.invoiceno}}
+					<br>
+					<b>Total Charge</b>: &#8358;{{archive.amountpaid}}
+					<br>
+					<b>Payment Method</b>: {{archive.paymentmethod}}
+					<br>
+					<b>Payment Status</b>: {{archive.paymentstatus}}
+					<br>
+					<b>Your Status</b>: {{archive.customerstatus}}
+				</p>
+	          </div>
+	          <!-- <div class="item item-divider">
+	            I'm a Footer in a Card!
+	          </div> -->
+	        </div>
+	    </div>
+
+	</div><!--end ft_home_icons-->
+
+
+
+  </ion-content>
+</ion-view>
+
+
+

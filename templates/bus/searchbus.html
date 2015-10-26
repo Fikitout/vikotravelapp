@@ -1,0 +1,186 @@
+<ion-view view-title="Inter-state Bus" ng-controller="SearchBusCtrl as search">
+  <ion-content class="padding" id="page_content">
+
+    <div id="app_logo">
+
+    </div>
+    
+
+	<div class="sub_content">
+		<div class="item item-divider card_top item-balanced">
+		    <h2>Find Buses</h2>
+		</div>
+		
+		<form name="searchBusForm" ng-submit="search.searchBus()">
+            
+            <div class="row">
+				<div class="col">
+					<!-- <label style="" class="item item-input" ng-class="{ 'has-error' : searchBusForm.from.$invalid && searchBusForm.$submitted}">
+		                <input name="from" ng-model="search.searchForm.depart" placeholder="From City" type="text" required>
+		            </label>
+		            <div ng-messages="searchBusForm.from.$error" ng-if="searchBusForm.$submitted" role="alert">
+                        <div ng-message="required">This Field is Required</div>
+                        
+                    </div> -->
+                    
+                    <label class="item item-input item-select">
+                        <div class="input-label">
+                            From 
+                        </div>
+                        <select id="state" name="state" ng-model="search.searchForm.depart" required>
+                            <option value="Abuja">Abuja Federal Capital</option>
+                            <option value="Abia">Abia</option>
+                            <option value="Adamawa">Adamawa</option>
+                            <option value="Akwa Ibom">Akwa Ibom</option>
+                            <option value="Anambra">Anambra</option>
+                            <option value="Bauchi">Bauchi</option>
+                            <option value="Bayelsa">Bayelsa</option>
+                            <option value="Benue">Benue</option>
+                            <option value="Borno">Borno</option>
+                            <option value="Cross River">Cross River</option>
+                            <option value="Delta">Delta</option>
+                            <option value="Ebonyi">Ebonyi</option>
+                            <option value="Edo">Edo</option>
+                            <option value="Ekiti">Ekiti</option>
+                            <option value="Enugu">Enugu</option>
+                            <option value="Gombe">Gombe</option>
+                            <option value="Imo">Imo</option>
+                            <option value="Jigawa">Jigawa</option>
+                            <option value="Kaduna">Kaduna</option>
+                            <option value="Kano">Kano</option>
+                            <option value="Katsina">Katsina</option>
+                            <option value="Kebbi">Kebbi</option>
+                            <option value="Kogi">Kogi</option>
+                            <option value="Kwara">Kwara</option>
+                            <option value="Lagos">Lagos</option>
+                            <option value="Nassarawa">Nassarawa</option>
+                            <option value="Niger">Niger</option>
+                            <option value="Ogun">Ogun</option>
+                            <option value="Ondo">Ondo</option>
+                            <option value="Osun">Osun</option>
+                            <option value="Oyo">Oyo</option>
+                            <option value="Plateau">Plateau</option>
+                            <option value="Rivers">Rivers</option>
+                            <option value="Sokoto">Sokoto</option>
+                            <option value="Taraba">Taraba</option>
+                            <option value="Yobe">Yobe</option>
+                            <option value="Zamfara">Zamfara</option>
+                        </select>
+
+                    </label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<!-- <label style="" class="item item-input" ng-class="{ 'has-error' : searchBusForm.to.$invalid && searchBusForm.$submitted}">
+		                <input name="to" ng-model="search.searchForm.arrive" placeholder="To City" type="text">
+		            </label>
+		            <div ng-messages="searchBusForm.from.$error" ng-if="searchBusForm.$submitted" role="alert">
+                        <div ng-message="required">This Field is Required</div>
+                        
+                    </div> -->
+                    <label class="item item-input item-select">
+                        <div class="input-label">
+                            To
+                        </div>
+                        <select id="state" name="state" ng-model="search.searchForm.arrive" required>
+                            <option value="Abuja">Abuja Federal Capital</option>
+                            <option value="Abia">Abia</option>
+                            <option value="Adamawa">Adamawa</option>
+                            <option value="Akwa Ibom">Akwa Ibom</option>
+                            <option value="Anambra">Anambra</option>
+                            <option value="Bauchi">Bauchi</option>
+                            <option value="Bayelsa">Bayelsa</option>
+                            <option value="Benue">Benue</option>
+                            <option value="Borno">Borno</option>
+                            <option value="Cross River">Cross River</option>
+                            <option value="Delta">Delta</option>
+                            <option value="Ebonyi">Ebonyi</option>
+                            <option value="Edo">Edo</option>
+                            <option value="Ekiti">Ekiti</option>
+                            <option value="Enugu">Enugu</option>
+                            <option value="Gombe">Gombe</option>
+                            <option value="Imo">Imo</option>
+                            <option value="Jigawa">Jigawa</option>
+                            <option value="Kaduna">Kaduna</option>
+                            <option value="Kano">Kano</option>
+                            <option value="Katsina">Katsina</option>
+                            <option value="Kebbi">Kebbi</option>
+                            <option value="Kogi">Kogi</option>
+                            <option value="Kwara">Kwara</option>
+                            <option value="Lagos">Lagos</option>
+                            <option value="Nassarawa">Nassarawa</option>
+                            <option value="Niger">Niger</option>
+                            <option value="Ogun">Ogun</option>
+                            <option value="Ondo">Ondo</option>
+                            <option value="Osun">Osun</option>
+                            <option value="Oyo">Oyo</option>
+                            <option value="Plateau">Plateau</option>
+                            <option value="Rivers">Rivers</option>
+                            <option value="Sokoto">Sokoto</option>
+                            <option value="Taraba">Taraba</option>
+                            <option value="Yobe">Yobe</option>
+                            <option value="Zamfara">Zamfara</option>
+                        </select>
+
+                    </label>
+				</div>
+			</div>
+
+			<p align="center" ng-show="loadingOperators">
+            	<i>Loading Operators...</i>
+            </p>
+
+			<div class="row"  ng-hide="loadingOperators">
+				<div class="col">
+					<p>
+						<b>Select Bus Operator</b>
+					</p>
+					<label style="" name="title" class="item item-select item-input">
+		                <span class="input-label">Operator</span>
+		                <!-- <select ng-model="search.searchForm.operator" ng-options="operator.busoperator as operator.busoperator for operator in busoperators">
+                    	</select> -->
+                    	<select ng-model="search.searchForm.operator">
+                    		<option ng-repeat="operator in routeOperators" value="{{operator}}">{{operator}}</option>
+                    	</select>
+		            </label>
+				</div>
+			</div>
+
+			<div class="row" ng-show="showTerminals">
+				<div class="col">
+					<p>
+						<b>Select Bus Terminal</b>
+					</p>
+					<label style="" name="title" class="item item-select item-input">
+		                <span class="input-label">Terminal</span>
+		                <!-- <select ng-model="search.searchForm.terminal" ng-options="terminal.busterminal as terminal.busterminal for terminal in terminals">
+		                </select> -->
+		                <select ng-model="search.searchForm.terminal">
+                    		<option ng-repeat="terminal in routeTerminals" value="{{terminal}}">{{terminal}}</option>
+                    	</select>
+
+		                
+		            </label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col">		
+					<button class="button button-positive button-block" ng-disabled="searchBusForm.$invalid">
+						<i class="icon ion-search"></i>
+						&nbsp;
+						Find Buses
+					</button>
+				</div>
+			</div>
+            
+        </form>
+	</div><!-- /.sub_content -->
+
+
+
+  </ion-content>
+</ion-view>
+
+		

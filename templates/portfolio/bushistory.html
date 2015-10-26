@@ -1,0 +1,66 @@
+<ion-view view-title="Bus Booking History" ng-controller="BusHistoryCtrl">
+  <ion-content class="padding" id="page_content">
+
+    <div id="app_logo">
+
+    </div>
+    
+
+	<div id="ft_home_icons">
+            
+	   	<p align="center" ng-hide="loaded">
+	        <!--<i class="icon ion-loading-c"></i>-->
+	        <ion-spinner></ion-spinner>
+	        <br/>
+	        <i>Loading Bus Booking Archive</i>
+	    </p>
+
+	    <p ng-show="nohistory">
+	    	No History Found
+	    </p>
+
+	    <div id="flightArchive">
+	        <div class="card" ng-repeat="archive in busarchive">
+	          <div class="item item-divider">
+	            <h2>Booking No.: {{archive.bookingnumber | uppercase}}</h2>
+	            <p>Date Booked : {{archive.bookingdatetime}}</p>
+	            
+	          </div>
+	          <div class="item item-text-wrap">
+	          	<p>
+					<b>Bus Company</b>: {{archive.busoperatorFK}} 
+					<br>
+					<b>Bus Type</b>: {{archive.busFK}}
+					<br>
+					<b>Terminal</b>: {{archive.terminalFK}}
+					<br>
+					<b>Seats</b>: {{archive.num_seats}}
+					<br>
+					<b>Travel Date</b>: {{archive.boarding_datetime}}
+					<br>
+					<b>Invoice No.</b>: #{{archive.invoiceno}}
+					<br>
+					<b>Total Charge</b>: &#8358;{{archive.amountpaid}}
+					<br>
+					<b>Payment Method</b>: {{archive.paymentmethod}}
+					<br>
+					<b>Payment Status</b>: {{archive.paymentstatus}}
+					<br>
+					<b>Your Status</b>: {{archive.customerstatus}}
+				</p>
+	          </div>
+	          <!-- <div class="item item-divider">
+	            I'm a Footer in a Card!
+	          </div> -->
+	        </div>
+	    </div>
+
+	</div><!--end ft_home_icons-->
+
+
+
+  </ion-content>
+</ion-view>
+
+
+

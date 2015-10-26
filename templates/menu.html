@@ -1,0 +1,103 @@
+<ion-side-menus enable-menu-with-back-views="true">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-energized">
+      <!-- <ion-nav-back-button class="button-clear button-icon icon ion-ios7-arrow-back">
+      </ion-nav-back-button> -->
+
+      <ion-nav-back-button>
+        <!-- <i class="icon ion-arrow-left-c"></i> -->
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+        <!-- <button class="button button-icon button-clear ion-gear-b" menu-toggle="left">
+        </button> -->
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent" id="page_content"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <!-- <ion-pane ion-side-menu-content>
+    <ion-nav-bar class="bar-balanced">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-pane> -->
+
+  <ion-side-menu side="left" id="bt_main_side_menu">
+    <ion-header-bar class="bar-energized">
+      <h1 class="title">Menu</h1>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list id="bt_sideMenu">
+        <div class="item item-divider bar-balanced">
+          Quick Links
+        </div>
+        <a class="item" nav-clear menu-close ng-click="goToPage('app.home')">
+          <i class="icon ion-android-home"></i>
+          &nbsp;
+          Home
+        </a>
+        <a class="item" nav-clear menu-close ng-click="goToPage('app.scheduleviewoptions')" ng-show="subscribed"> 
+        <!-- <a class="item" nav-clear menu-close ng-click="goToPage('app.onewayflight')" ng-show="subscribed"> -->
+          <i class="fa fa-bus"></i>
+          &nbsp;
+          Bus Times
+        </a>
+        <a class="item" nav-clear menu-close ng-click="goToPage('app.searchhotels')" ng-show="subscribed">
+        <!-- <a class="item" nav-clear menu-close ng-click="goToPage('app.onewayflight')" ng-show="subscribed"> -->
+          <i class="icon ion-calendar"></i>
+          &nbsp;
+          Book Hotels
+        </a>
+        <a class="item" nav-clear menu-close ng-click="goToPage('app.searchbus')" ng-show="subscribed">
+        <!-- <a class="item" nav-clear menu-close ng-click="goToPage('app.booktaxi')" ng-show="subscribed"> -->
+          <i class="icon ion-android-bus"></i>
+          &nbsp;
+          Book Bus
+        </a>
+        <a class="item" nav-clear menu-close ng-click="goToPage('app.premiumupdates')">
+          <i class="fa ion-card"></i>
+          &nbsp;
+          Buy Pincode
+        </a>
+        <a class="item" nav-clear menu-close ng-click="goToPage('app.enterpin')">
+          <i class="fa fa-power-off"></i>
+          &nbsp;
+          <span ng-hide="subscribed">Activate Pin</span>
+          <span ng-show="subscribed">Increase Access</span>
+        </a>
+        <a class="item" nav-clear menu-close ng-click="goToPage('submitmemberid')">
+          <i class="icon ion-code-working"></i>
+          &nbsp;
+          Change SME Code
+        </a>
+        <a class="item" nav-clear menu-close ng-click="goToWebPage('http://ntdc-viko.quiz.com.ng/mobile/')">
+          <i class="icon ion-ios-game-controller-b"></i>
+          &nbsp;
+          Quiz Game
+        </a>
+        <a class="item" nav-clear menu-close href="tel:080022558456">
+          <i class="icon ion-android-call"></i>
+          &nbsp;
+          Call Toll Free
+        </a>
+
+        <a class="item" nav-clear menu-close ng-click="goToPage('app.interestform')">
+          <i class="icon ion-ios-list"></i>
+          &nbsp;
+          B.O Expression of Interest
+        </a>
+
+        <a class="item" nav-clear menu-close ng-click="goToWebPage('http://vikosme.com/')">
+          <i class="icon ion-ios-list"></i>
+          &nbsp;
+          B.O Registration
+        </a>
+
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

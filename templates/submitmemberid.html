@@ -1,0 +1,59 @@
+<ion-header-bar class="bar-royal">
+	<a class="button icon ion-home" ng-show="hasMember" ui-sref="app.home"></a>
+    <h1 class="title">Submit SME Code</h1>
+
+    
+</ion-header-bar>
+
+<ion-content ng-controller="SubmitMemberIdCtrl as member">
+	<div id="ft_home_logo">
+
+    </div>
+
+    <div id="ft_forms">
+    	<form name="submitMemberIdForm" ng-submit="member.submitMemberID()">
+    		<!-- <div class="row">
+                <div class="col">
+                    <label class="item item-input">
+                        <input type="text" ng-model="member.member_id" required>
+                    </label>
+                </div>
+            </div> -->
+
+            <div class="row">
+                <div class="col">
+                    <label class="item item-input item-select">
+                        <div class="input-label">
+                            Select Code
+                        </div>
+                        <select ng-model="member.member_id"
+                                ng-options="bo.user_id as bo.user_id for bo in promotedSMEs" required>
+                        </select>
+                    </label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <button class="button button-positive button-block" type="submit" ng-disabled="submitMemberIdForm.$invalid">
+                    	Submit ID
+                    </button>
+                </div>
+            </div>
+    	</form>
+    </div><!-- /.ft_forms -->
+
+    <div class="row" ng-show="hasMember">
+        <div class="col">
+           SME Code :  <b>{{member_id | uppercase}}</b>
+        </div>
+    </div>
+
+    <div class="row" ng-hide="hasMember">
+        <div class="col">
+            An SME Code is required to run this Application, please select one 
+            or Call Toll-Free on 0800CALLVIKO (080022558456) for a free SME Code.
+        </div>
+    </div>
+     
+</ion-content>

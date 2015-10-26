@@ -1,0 +1,109 @@
+<ion-view view-title="Bus Schedules" ng-controller="PortfolioCtrl as schedule">
+  <ion-content class="padding" id="page_content">
+
+    <div id="app_logo">
+
+    </div>
+    
+    <div class="sub_content">
+		<div class="item item-divider card_top item-balanced">
+		    <h2>Search Details</h2>
+		</div>
+		
+		<div class="row">
+			<div class="col">
+				<label class="item item-input item-select">
+                    <div class="input-label">
+                        From
+                    </div>
+                    <select ng-model="schedule.origin"
+                            ng-options="state.florigin as state.florigin for state in bustimesStates" required>
+                    </select>
+                </label>
+			</div>
+		</div>
+
+        <div class="row">
+            <div class="col">
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        To
+                    </div>
+                    <select ng-model="schedule.destination"
+                            ng-options="state.florigin as state.florigin for state in bustimesStates" required>
+                    </select>
+                </label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <button type="button" class="button button-block button-positive" ng-click="getYesterdaySchedules()">
+                    Get Schedules
+                </button>
+            </div>
+        </div>
+	</div><!-- /.sub_content -->
+
+	<!-- <div class="sub_content">
+		<div class="item item-divider card_top item-balanced">
+		    <h2>Search Results</h2>
+		</div> -->
+
+		<!-- <div class="row">
+			<div class="col">
+				 <label class="item item-input">
+                    <input placeholder="Filter By Route No." ng-model="routeNumberFilter" type="text">
+                </label>
+			</div>
+		</div> -->
+		
+		<div class="row">
+			<div class="col">
+				<a collection-repeat="route in busTimesResultsYesterday | filter:routeNumberFilter" class="item">
+                <!--<img src="http://flightstime.com.ng/engine_room/main_engine_room/styles/iframe_engine/airline_icons/{{flight.airline_icon}}" height="35">-->
+
+                <h2><b>{{route.flight_name}}</b></h2>
+
+                <p><b>{{route.airline_name}}</b></p>
+                <div class="row">
+                    <div class="col">
+                        
+                        <p>
+                            <b>From</b> : {{route.flight_origin}}
+                            <br/>
+                            <b>To</b> : {{route.flight_destination}}
+                        </p>
+
+                    </div>
+                    <div class="col">
+                        <p>
+                            <b>Boarding</b>: {{route.boarding_time | date : 'shortTime'}}
+                        </p>
+                        <p>
+                            <b>Depart</b>: &nbsp;{{route.EStime_departure | date : 'shortTime'}}
+                            <br/>
+                            <b>Arrive</b>: &nbsp;{{route.EStime_arrival | date : 'shortTime'}}
+                            <br/>
+                            <b>Status</b> : 
+                            <!-- <span style="color:{statusColors('{{flight.flight_status}}')}">
+                            {{flight.flight_status}}
+                        </span> -->
+                            <span style="color:{{setStatusColors[route.flight_status]}}">
+                                {{route.flight_status}}
+                            </span>
+                        </p>
+                    </div>
+                </div><!--end row-->
+                <!--<p><b>{{flight.airport_name}}</b></p>-->
+
+
+            </a>
+			</div>
+		</div>
+	<!--</div> /.sub_content -->
+
+
+
+  </ion-content>
+</ion-view>

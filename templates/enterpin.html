@@ -1,0 +1,46 @@
+<ion-view view-title="Activate with Pin" ng-controller="ActivatePinCtrl as loadpin">
+    <ion-content class="padding">
+        <div ng-include="'./templates/includes/head_icons.html'"></div>
+
+        <div id="ft_home_logo">
+
+        </div>
+        <!--end ft_home_logo-->
+
+        <div class="row" ng-show="subscribed">
+            <div class="col">
+                <p>
+                    <b>
+                        A Subscription is currently running
+                        <br>
+                        <span class="positive">Ends {{activeDaysLeft}}.</span>
+                        <br>
+                        Increase this by entering a new pin.
+                    </b>
+                </p>
+            </div>
+        </div>
+
+        <div>
+
+                <form name="enterPinForm" ng-submit="loadpin.submitPin()" novalidate>
+                    <div class="list">
+                        <label class="item item-input">
+                            <!--<span class="input-label">Enter Pin</span>-->
+                            <input type="text" ng-model="loadpin.pincode" placeholder="Enter Pin" required>
+                        </label>
+                        <label class="item">
+                            <button class="button button-block button-positive" type="submit" ng-disabled="enterPinForm.$invalid">
+                                Submit Pin
+                            </button>
+                        </label>
+                    </div>
+
+                </form>
+
+        </div>
+        <!--end ft_flight_icons-->
+
+        <div ng-include="'./templates/includes/page_actions.html'"></div>
+    </ion-content>
+</ion-view>

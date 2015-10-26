@@ -1,0 +1,39 @@
+<ion-view view-title="Find a Hotel" ng-controller="SearchHotelCtrl as hotels">
+  <ion-content class="padding" id="page_content">
+
+    <div id="app_logo">
+
+    </div>
+    
+
+	<div class="sub_content">
+		<div class="item item-divider card_top item-balanced">
+		    <h2>Find a Hotel</h2>
+		</div>
+		<form name="searchHotelForm" ng-submit="hotels.findHotels()">
+	  		<div class="row">
+	            <div class="col">
+	                <label class="item item-input">
+	                    <input type="text" ng-model="hotels.keyword" placeholder="City, District or Hotel" required>
+	                </label>
+	            </div>
+	        </div>
+
+	        <div class="row">
+	            <div class="col">
+	                <button class="button button-block button-positive" ng-disabled="searchHotelForm.$invalid">
+	                   	<i class="icon ion-ios-search-strong"></i>
+					    &nbsp;
+					    Search Hotels
+	                </button>
+	            </div>
+	        </div>
+
+	        
+	  	</form>
+	</div><!-- /.sub_content -->
+
+
+
+  </ion-content>
+</ion-view>

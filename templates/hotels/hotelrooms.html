@@ -1,0 +1,53 @@
+<ion-view view-title="{{hotelDetails.hotelname}}" ng-controller="SelectRoomCtrl as rooms">
+  <ion-content class="padding" id="page_content">
+
+    <div id="app_logo">
+
+    </div>
+    
+    <div class="card" ng-repeat="room in roomsresults">
+	  <div class="item item-divider item-balanced card_top">
+	    {{room.roomname_type}}
+	  </div>
+	  <div class="item item-body">
+	    <img class="full-image" src="http://www.vikotravel.com.ng/images/roomimages/{{room.image}}">
+	    <p class="balanced">
+			{{hotelDetails.hotelname}}, {{hotelDetails.hoteladdress}}, {{hotelDetails.city}}.
+	    </p>
+	    <p>
+	      Total of this room type: {{room.roomtotal}}
+	      <br>
+		  Max Occupancy: {{room.maxadult}} adult(s)   {{room.maxchildren}} child(ren)
+	    </p>
+	    <p>
+	    	<a class="button button-block button-outline button-dark">
+	    		Price : 
+	    		<span ng-show="room.discount!=0">
+	    			&#8358;<del>{{room.roompernightprice}}</del>
+	    		</span> 
+	    		&#8358;{{room.roompernightprice - (room.discount * room.roompernightprice/100)}}/night
+	    	</a>
+	    </p>
+	    
+	    <div class="button-bar">
+		  <a class="button button-small button-balanced">{{room.roomtotal}} rooms left</a>
+		  <a class="button button-small button-energized">{{room.discount}}% Discount</a> <!-- Invokes a function that takes in the details as parameter and displays it in a alert box -->
+		</div>
+		<p>
+			<button class="button button-block button-positive" ng-click="rooms.selectRoom(room.id)">
+	            <i class="icon ion-compose"></i>
+					&nbsp;
+					Book Now
+	        </button>
+		</p>
+	  </div>
+
+	  
+	  <!-- <div class="item item-divider">
+	    Terms and Conditions Apply
+	  </div> -->
+	</div><!-- /. card1 -->
+
+	
+  </ion-content>
+</ion-view>

@@ -1,0 +1,74 @@
+<ion-view view-title="Select a Hotel" ng-controller="SelectHotelCtrl as hotels">
+  <ion-content class="padding" id="page_content">
+
+    <div id="app_logo">
+
+    </div>
+    
+
+	<div class="sub_content">
+		<div class="item item-divider card_top item-balanced">
+		    <h2>Select a Hotel</h2>
+		</div>
+		<form name="selectHotelForm" ng-submit="hotels.findHotelRooms()">
+	  		
+	        <div class="row">
+                <div class="col">
+                    <label class="item item-input item-select">
+                        <div class="input-label">
+                            Hotel
+                        </div>
+                        <select ng-model="hotels.selectedhotel" ng-options="hotel.id as hotel.hotelname for hotel in hotelresults" required>
+                    	</select>
+
+                    </label>
+                </div>
+            </div>
+
+            <div class="row" ng-show="!!hotelDetails">
+            	<div class="col">
+            		<p>
+            			<b class="balanced">{{hotelDetails.hotelname}}</b>
+            		</p>
+            		<p>
+            			<b>Address</b> : {{hotelDetails.hoteladdress}}
+            		</p>
+            		<p>
+            			<b>City</b> : {{hotelDetails.city}}
+            		</p>
+
+            		<div class="list card">
+
+					  <div class="item item-divider">
+					    <h2>Hotel View</h2>
+					  </div>
+
+					  <div class="item item-image">
+					    <img src="http://www.vikotravel.com.ng/images/hotelimages/{{hotelDetails.image}}">
+					  </div>
+
+					</div><!-- /.card -->
+
+            		<p ng-bind-html="hotelDetails.hoteldescription | sanitize">
+            			
+            		</p>
+            	</div>
+            </div>
+
+            <div class="row">
+	            <div class="col">
+	            	
+	                <button class="button button-block button-positive" ng-disabled="selectHotelForm.$invalid">
+	                   	<i class="icon ion-clipboard"></i>
+					    &nbsp;
+					    Find Rooms
+	                </button>
+	            </div>
+	        </div>
+	  	</form>
+	</div><!-- /.sub_content -->
+
+
+
+  </ion-content>
+</ion-view>

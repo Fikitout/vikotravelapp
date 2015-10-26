@@ -1,0 +1,237 @@
+<ion-view view-title="{{selectedBus.bustype}} - {{selectedBus.busoperator}}" ng-controller="BookBusCtrl as booking">
+  <ion-content class="padding" id="page_content">
+
+    <div id="app_logo">
+
+    </div>
+    
+    <div class="card">
+      <div class="item item-divider item-balanced card_top">
+        {{selectedBus.bustype}}
+      </div>
+      <div class="item item-body">
+        <img class="full-image" src="http://vikotravel.com.ng/interstatebus/images/busimages/{{selectedBus.image}}">
+        <p> 
+            <span class="positive">Total Seats available onboard</span>: <b>{{selectedBus.totalseats}}</b>
+            <br>
+            <span class="positive">Bus Route No.</span>: <b>{{selectedBus.platenumber}}</b>
+            <br>
+            <span class="positive">Operator</span>: <b>{{selectedBus.busoperator}}</b>
+            <br>
+            <span class="positive">Bus Route</span>: <b>{{selectedBus.depart | uppercase}} - {{selectedBus.arrive | uppercase}}</b>
+        </p>
+        <div class="row">
+            <div class="col">
+                <b>Depart</b>
+                <br>
+                {{selectedBus.departuretime}}
+            </div>
+            <div class="col">
+                <b>Arrive</b>
+                <br>
+                {{selectedBus.arrivaltime}}
+            </div>
+        </div>
+        <p>
+            <span class="positive">Duration</span>: {{selectedBus.duration}}
+            <br>
+            <span class="positive">Board Point</span>:  {{selectedBus.busterminal}}
+            <br>
+            <span class="positive">Drop Point</span>:   {{selectedBus.droppingpoint}}
+        </p>
+        <p>
+            <a class="button button-block button-outline button-dark">
+                Price : 
+                <span ng-show="selectedBus.discount!=0">
+                    &#8358;<del>{{selectedBus.busfare}}</del>
+                </span> 
+                &#8358;{{selectedBus.busfare - (selectedBus.discount * selectedBus.busfare/100)}}/Seat
+            </a>
+        </p>
+        <!-- <p>
+            <a class="button button-block button-outline button-dark">
+                Price : &#8358;{{selectedBus.busfare}}/Seat
+            </a>
+        </p> -->
+        
+        <div class="button-bar">
+          <a class="button button-small button-balanced">{{selectedBus.totalseats}} Seaters Bus</a>
+          <a class="button button-small button-energized">{{selectedBus.discount}}% Discount</a> <!-- Invokes a function that takes in the details as parameter and displays it in a alert box -->
+        </div>
+        
+      </div>
+
+      
+      <!-- <div class="item item-divider">
+        Terms and Conditions Apply
+      </div> -->
+    </div><!-- /. card1 -->
+
+	<div class="sub_content">
+		<div class="item item-divider card_top item-balanced">
+		    <h2>Booking Form</h2>
+		</div>
+
+		<!-- <div class="row">
+			<div class="col">
+				<a class="button button-block button-outline button-dark">
+		    		Total Price : &#8358; {{5000 * amount}}
+		    	</a>
+                <br>
+                Service Fee : &#8358; 100
+                <br>
+                Tax & Vat : 5%
+			</div>	
+	    </div> -->
+
+        
+		<form name="bookBusForm" ng-submit="booking.submitBusBooking()">
+
+			<div class="row">
+                <div class="col">
+                    <p>
+                        Travel Date
+                    </p>
+                    <ionic-datepicker idate="travelDate" disablepreviousdates="true"  disablefuturedates="false" callback="datePickerCallback" title="title">
+                    <button type="button" class="button button-block button-calm"> {{ travelDate | date:'dd - MMMM - yyyy' }} </button>
+                </ionic-datepicker>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                        
+                        <label class="item item-input item-select">
+                            <div class="input-label">
+                                Seats
+                            </div>
+                            <select ng-model="booking.bookingForm.num_seats">
+                                <option value="1" selected>1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </label>
+
+                    </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <p>
+                        Service Fee: &#8358;{{appSettings.bus_service_charge}}
+                        <br>
+                        Tax & VAT : {{appSettings.vat}}%
+                    </p>
+                    <a class="button button-block button-outline button-dark">
+                        Total Price : &#8358;{{booking.calculatePrice()}}
+                    </a>
+                </div>  
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="col">
+                   <label class="item item-input item-select">
+                        <div class="input-label">
+                            Title
+                        </div>
+                        <select ng-model="booking.bookingForm.guest.title" required>
+                            <option value="Mr.">Mr.</option>
+                            <option value="Miss">Miss</option>
+                            <option value="Mrs.">Mrs.</option>
+                            <option value="Master">Master</option>
+                            <option value="Barr.">Barr.</option>
+                            <option value="Chief">Chief</option>
+                            <option value="Dr.">Dr.</option>
+                            <option value="HRH">HRH</option>
+                            <option value="Hon.">Hon.</option>
+                            <option value="Lady">Lady</option>
+                            <option value="Mstr.">Mstr.</option>
+                            <option value="Ms.">Ms.</option>
+                            <option value="Otunba">Otunba</option>
+                            <option value="Pastor">Pastor</option>
+                            <option value="Prof.">Prof.</option>
+                            <option value="Sen.">Sen.</option>
+                            <option value="Sir">Sir</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="item item-input" ng-class="{ 'has-error' : bookBusForm.firstname.$invalid && bookBusForm.$submitted}">
+                        <input placeholder="Name" name="firstname" ng-model="booking.bookingForm.guest.fname" type="text" required>
+                    </label>
+                    <div ng-messages="bookBusForm.firstname.$error" ng-if="bookBusForm.$submitted" role="alert">
+                        <div ng-message="required">This Field is Required</div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="item item-input" ng-class="{ 'has-error' : bookBusForm.surname.$invalid && bookBusForm.$submitted}">
+                        <input placeholder="Last Name" name="surname" ng-model="booking.bookingForm.guest.sname" type="text" required>
+                    </label>
+                    <div ng-messages="bookBusForm.surname.$error" ng-if="bookBusForm.$submitted" role="alert">
+                        <div ng-message="required">This Field is Required</div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="item item-input" ng-class="{ 'has-error' : bookBusForm.tel.$invalid && bookBusForm.$submitted}">
+                        <input type="text" name="tel" placeholder="Telephone (Mobile Preferred)" ng-model="booking.bookingForm.guest.phone" required>
+                    </label>
+                </div>
+                <div ng-messages="bookBusForm.tel.$error" ng-if="bookBusForm.$submitted" role="alert">
+                    <div ng-message="required">This Field is Required</div>
+                    
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col">
+                    <b>Where should we send your confirmation?</b>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col">
+                    <label class="item item-input" ng-class="{ 'has-error' : bookBusForm.guestemail.$invalid && bookBusForm.$submitted}">
+                        <input placeholder="Email" name="guestemail" ng-model="booking.bookingForm.guest.email" type="email" required>
+                    </label>
+                    <div ng-messages="bookBusForm.guestemail.$error" ng-if="bookBusForm.$submitted" role="alert">
+                        <div ng-message="required">This Field is Required</div>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+	            <div class="col">
+	            	<!-- Change this back to a button later -->
+	                <button class="button button-block button-positive" ng-disabled="bookBusForm.$invalid">
+	                   	<i class="icon ion-android-bus"></i>
+					    &nbsp;
+					    Book Bus
+	                </button>
+	            </div>
+	        </div>
+		</form>
+
+	</div><!-- /.sub_content -->
+
+
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,42 @@
+<ion-view view-title="My Notifications" ng-controller="AppMessagesCtrl">
+    <ion-content class="padding">
+        <div ng-include="'./templates/includes/head_icons.html'"></div>
+
+        <div id="ft_home_logo">
+
+        </div>
+        <!--end ft_home_logo-->
+
+        <div id="ft_home_icons">
+            
+           <p align="center" ng-hide="loaded">
+                <!--<i class="icon ion-loading-c"></i>-->
+                <ion-spinner></ion-spinner>
+                <br/>
+                <i>Loading Notifications</i>
+            </p>
+
+            <div id="flightArchive">
+                <div class="card" ng-repeat="message in appmessages">
+                  <div class="item item-divider">
+                    <h2>{{message.title}}</h2>
+                    <p>Date: {{message.datecreated}}</p>
+                    
+                  </div>
+                  <div class="item item-text-wrap">
+                    <p>
+                        {{message.message}}
+
+                    </p>
+                  </div>
+                  <!-- <div class="item item-divider">
+                    I'm a Footer in a Card!
+                  </div> -->
+                </div>
+            </div>
+
+        </div><!--end ft_home_icons-->
+
+        <div ng-include="'./templates/includes/page_actions.html'"></div>
+    </ion-content>
+</ion-view>
